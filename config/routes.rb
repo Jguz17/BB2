@@ -3,4 +3,11 @@ Rails.application.routes.draw do
   resources :movies, only: [:index, :show]
   resources :users, only: [:show, :new, :create]
   resources :orders, only: [:new, :create, :show]
+
+  get "signup", to: "users#new", as: "signup"
+  get "login", to: "sessions#new", as: "login"
+  post "sessions", to: "sessions#create", as: "sessions"
+
+  delete "sessions", to: "sessions#destroy"
+
 end
