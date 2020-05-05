@@ -1,4 +1,6 @@
 Here is your order:
 
-
-<%@order.movie%>
+<br>
+<% @order.movies.each do |movie| %>
+  <%= movie.title %> <br>
+  <%end%>
