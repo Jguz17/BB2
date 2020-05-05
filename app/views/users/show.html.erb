@@ -1,1 +1,11 @@
 <h1><%= @user.user_name %></h1>
+<h1><%= Your ordered %></h1>
+
+<% if @current %>
+  (logged in as <%= @current.user_name %>)
+<% end %>
+
+<%# <% @user.orders.each do |title|??? %> 
+  <%# <li> list of orders </li>  %> 
+
+<% end %>

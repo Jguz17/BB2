@@ -26,3 +26,4 @@ bo = Order.create(user: bart)
 ji = OrderItem.create(order: jo, movie: hp)
 yi = OrderItem.create(order: yo, movie: lb)
 bi = OrderItem.create(order: bo, movie: ae)
+

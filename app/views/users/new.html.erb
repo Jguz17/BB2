@@ -1,21 +1,19 @@
-<h1>User Form</h1>
+<% @user.errors.full_messages.each do |error| %>
+  <p><%= error %></p>
+<% end %>
+
+<h1>Create an Account</h1>
 
 <%= form_for (@user) do |f| %>
     <%= f.label :user_name %>
     <%= f.text_field :user_name %>
+    <br><br>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <br><br>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+    <br><br>
+    <%= f.submit "Sign Up" %>
 
-    <%= f.submit %>
-
-
-<% if @user.errors.any? %>
-  <div id="error_explanation">
-    <h3><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h3>
- 
-    <ul>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
 <% end %>
