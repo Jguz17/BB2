@@ -1,0 +1,14 @@
+<h1> Create a New Order for <%=@order.user%></h1>
+
+
+<%=form_for @order do |f|%>
+  <p><%= f.collection_check_boxes :movie_ids, Movie.all, :id, :title %></p>
+  <br>
+  
+  <%= f.submit %>
+<%end%>
+
+
+
+
+
