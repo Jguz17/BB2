@@ -1,22 +1,17 @@
 class ApplicationController < ActionController::Base
   before_action :authorized
   helper_method :current_user, :logged_in?
-  # skip_before_action :authorized, only: [:new, :create]
 
-
-  # def current_user
-  #   if session[:user_id]
-  #     @user = User.find_by(id: session[:user_id])
-  #   else
-  #   end
-  # end
+  def current_user
+    User.find_by(id: session[:user_id])
+  end
   
-  # def logged_in?
-  #   !!current_user
-  # end
+  def logged_in?
+    !!current_user
+  end
 
-  # def authorized
-  #   redirect_to login_path unless logged_in?
-  # end
+  def authorized
+    redirect_to login_path unless logged_in?
+  end
 
 end

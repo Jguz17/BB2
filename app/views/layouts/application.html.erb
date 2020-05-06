@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bb2</title>
+    <title>BB2</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,14 +9,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-
   <body>
-    <% if logged_in? %>
-    <%= link_to "Logout", sessions_path, method: :delete %>
-  <% else %>
-    <%= link_to "Login", login_path %>
-  <% end %>
-
     <%= yield %>
   </body>
 </html>

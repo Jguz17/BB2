@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  #skip_before_action :authorized, only: [:new, :create]
     def show
       @user = User.find(params[:id])
       if session[:user_id]
@@ -26,14 +25,14 @@ class UsersController < ApplicationController
     #   end
     def create
       @user = User.new(user_params)
-      if @user.valid?
-        @user.save
+      if @user.save
+        session[:id] = @user.id
         redirect_to @user
       else
-        flash[:message] = "Invalid credentials"
-        redirect_to new_user_path
-
+       # flash[:message] = "Invalid credentials"
+        render :new
       end
+    end
 
       # @user = User.new(user_params)
       # if @user.save
@@ -45,7 +44,7 @@ class UsersController < ApplicationController
       #   p @user.errors.full_messages
       #   render :new
       # end
-    end
+    
     # def create
     #     @user = User.new(user_params)
     #     if @user.save
