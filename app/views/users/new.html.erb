@@ -1,0 +1,26 @@
+<h3> WELCOME TO BLOCKBUSTER 2: RETURN TO THA BLOCK </h3>
+
+
+<%= form_for @user do |f| %>
+  <%= f.label :user_name %>
+  <%= f.text_field :user_name %>
+  <br>
+  <%= f.label :password%>
+  <%= f.password_field :password%>
+  <br>
+  <%= f.label :password_confirmation%>
+  <%= f.password_field :password_confirmation%>
+  <br>
+  <%= f.submit "Create User"%>
+
+  <% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h3><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h3>
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+  <%end%>

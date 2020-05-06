@@ -1,0 +1,16 @@
+<h1>Welcome, <%= @user.user_name%>!</h1>
+
+<p>here are movies you ordered:</p>
+
+<%@user.orders.order_item.movie.title%>
+<% @user.orders.each do |order|%>
+  <% user_movies = {}%>
+  <% order.order_items.each do |item|%>
+    <%=item.movie.title %><br>
+  <%end%>
+<%end%>
+
+
+<% if @current %>
+  (logged in as <%= @current.user_name %>)
+  <%end%>

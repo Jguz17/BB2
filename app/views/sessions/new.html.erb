@@ -1,0 +1,13 @@
+
+<p><%=flash[:message]%></p>
+
+<%= form_tag login_path do%>
+  <%= label_tag :user_name %>
+  <%= text_field_tag :user_name %>
+  <br>
+  <%= label_tag :password%>
+  <%= password_field_tag :password%>
+  <br>
+
+  <%= submit_tag "Login" %>
+<% end %> 
