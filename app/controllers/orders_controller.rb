@@ -21,12 +21,19 @@ class OrdersController < ApplicationController
     end
   end
 
-
-  
   def show
     @order = Order.find(params[:id])
   end
 
+  def edit
+  @order = Order.find(params[:id])
+
+    #if session[:user_id]
+
+  end
+
+  def update
+  end
   
   private
   
