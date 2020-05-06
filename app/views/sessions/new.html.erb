@@ -3,10 +3,12 @@
 <%= form_tag sessions_path do %> 
   <%= label_tag "User Name" %>
   <%= text_field_tag :user_name %>
+  <br><br>
   <%= label_tag "Password" %>
-  <%= password_field_tag :password %>
-  <%= submit_tag "Log in" %>
+  <%= password_field_tag :password %><br>
+  <br>
+  <%= submit_tag "Log in" %> <br><br>
 <% end %>
-<%= link_to "Create a New Account", new_user_path %>
 
+<%= link_to "Create a New Account", new_user_path %>
 

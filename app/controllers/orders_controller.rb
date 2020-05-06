@@ -1,11 +1,12 @@
 class OrdersController < ApplicationController
-  before_action :require_login
+  #before_action :require_login
 
   def new
     @order = Order.new
-    @user = User.find(session[:id])
+    if session[:user_id]
+      @current = User.find(session[:user_id])
+    end 
   end
-
   #Order stores Order id + user ID
   #Order_Item stores order_id" + movie_id 
 
@@ -30,13 +31,12 @@ class OrdersController < ApplicationController
   private
   
   def order_params
-    # params.require(:order).permit(user_id: [], movie_ids: [])
-    params.require(:order).permit(user_id: [], movie_ids: [])
+    params.require(:order).permit(:user_id, movie_ids: [])
   end
 
   def require_login
     if !session.include? :id
       redirect_to login_path
     end
-end
+  end
 end

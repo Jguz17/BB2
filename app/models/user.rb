@@ -1,7 +1,9 @@
 class User < ApplicationRecord
-    has_many :orders
-    has_many :order_items, through: :orders
-    has_secure_password
+  has_secure_password
+  has_many :orders
+  has_many :order_items, through: :orders
+  has_many :movies, through: :order_items
+
 # https://api.rubyonrails.org/classes/ActiveModel/SecurePassword/ClassMethods.html
 # https://gist.github.com/iscott/4618dc0c85acb3daa5c26641d8be8d0d
 
@@ -19,6 +21,5 @@ class User < ApplicationRecord
   #     return self
   #   end
   # end
- 
-    
+
 end
