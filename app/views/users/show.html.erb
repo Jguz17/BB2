@@ -1,11 +1,26 @@
-<h1><%= @user.user_name %></h1>
-<h1> Your ordered </h1>
+<h1>Welcome, <%= @user.user_name%>!</h1>
 
+<h3>Here are movies you ordered:</h3>
+
+<% @user.orders.each do |order| %>
+  <%   order.movies.each do |movie| %>
+    <%= movie.title %> <br>
+  <%end%>
+<%end%>
+
+<br>
+<%= button_to "Create Movie Order", new_order_path, :method => "get" %>
+
+
+
+<br><br>
 <% if @current %>
   (logged in as <%= @current.user_name %>)
 <% end %>
-<br><br>
+
+<%= form_tag sessions_path do %> 
 <%= submit_tag "Log out" %> <br><br>
+<% end %>
 
 
 <%# <% @user.orders.each do |title|??? %> 

@@ -34,6 +34,8 @@ class UsersController < ApplicationController
       end
     end
 
+    
+
       # @user = User.new(user_params)
       # if @user.save
       #   session[:user_id] = @user.id
@@ -53,8 +55,18 @@ class UsersController < ApplicationController
     #      render :new
     #     end
     # end
-
-
+    def edit
+      @user = User.find(params[:id])
+    end
+  
+    def update
+      if @user = User.create(user_params)
+        session[:user_id] = @user.id
+        redirect_to user_path(@user)
+      else
+        render :edit
+      end
+    end
     private
 
     def user_params

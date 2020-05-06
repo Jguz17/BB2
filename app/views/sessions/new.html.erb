@@ -1,5 +1,4 @@
 <h1>Log In Page</h1>
-
 <%= form_tag sessions_path do %> 
   <%= label_tag "User Name" %>
   <%= text_field_tag :user_name %>
@@ -9,6 +8,4 @@
   <br>
   <%= submit_tag "Log in" %> <br><br>
 <% end %>
-
-<%= link_to "Create a New Account", new_user_path %>
-
+<%= button_to "Create a New Account", new_user_path, :method => "get" %>
