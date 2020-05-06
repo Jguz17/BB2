@@ -26,9 +26,9 @@ class OrdersController < ApplicationController
   end
 
   def edit
-  @order = Order.find(params[:id])
-
-    #if session[:user_id]
+    if session[:user_id]
+      @current = User.find(session[:user_id])
+    end 
 
   end
 
