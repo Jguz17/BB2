@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :movies, only: [:index, :show]
   resources :users, only: [:show, :new, :create]
   resources :orders, only: [:new, :create, :show]
+  resources :genres, only: [:show]
 
   get "signup", to: "users#new", as: "signup"
   get "login", to: "sessions#new", as: "login"

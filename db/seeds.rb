@@ -27,3 +27,14 @@ ji = OrderItem.create(order: jo, movie: hp)
 yi = OrderItem.create(order: yo, movie: lb)
 bi = OrderItem.create(order: bo, movie: ae)
 
+# --- Genre ---
+
+action = Genre.create(name: "Action")
+fantasy = Genre.create(name: "Fantasy")
+horror = Genre.create(name: "Horror")
+
+# --- Movie_Genre ---
+
+hpfant = MovieGenre.create(movie_id: 1, genre_id: 2)
+avact = MovieGenre.create(movie_id: 2, genre_id: 1)
+holepr = MovieGenre.create(movie_id: 3, genre_id:3)

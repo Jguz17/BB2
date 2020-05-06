@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :authorized
+  # before_action :authorized
   helper_method :current_user, :logged_in?
   # skip_before_action :authorized, only: [:new, :create]
 
