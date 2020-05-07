@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authorized
+  before_action :authorized, :current_user
   skip_before_action :authorized, only: [:new, :create] # or whatever onlys you need
 
   def show
@@ -26,24 +26,23 @@ class UsersController < ApplicationController
       end
     end
 
-    
-
     def edit
-      @user = User.find(params[:id])
+    @current_user
+      #@user = User.find(session[:id])
     end
   
     def update
-      if @user = User.create(user_params)
-        session[:user_id] = @user.id
-        redirect_to user_path(@user)
-      else
-        render :edit
-      end
+     @user = current_user 
+     @user.update(params.require(:user).permit(:location))
+     @user.save
+     redirect_to user_path(@user)
     end
+
+
     private
 
     def user_params
-        params.require(:user).permit(:user_name, :password,:password_confirmation)
+        params.require(:user).permit(:user_name,:location,:password,:password_confirmation)
     end
 end
 
