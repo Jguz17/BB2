@@ -19,11 +19,6 @@ sr = Movie.create(title: "The Shawshank Redemption")
 ff = Movie.create(title: "The Fast and the Furious")
 sw = Movie.create(title: "Star Wars")
 
-
-
-
-
-
 # # --- Orders ---
 # jo = Order.create(user: john)
 # yo = Order.create(user: yann)
@@ -51,4 +46,5 @@ mg2 = MovieGenre.create(movie_id: 2, genre_id: 4)
 mg3 = MovieGenre.create(movie_id: 3, genre_id:3)
 mg4 = MovieGenre.create(movie_id: 4, genre_id:2)
 mg5 = MovieGenre.create(movie_id: 5, genre_id:1)
+mg6 = MovieGenre.create(movie_id: 5, genre_id:5)
 

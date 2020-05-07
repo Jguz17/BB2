@@ -2,11 +2,19 @@
 
 <h3>Here are movies you ordered:</h3>
 
-<% @user.orders.each do |order| %>
-  <%   order.movies.each do |movie| %>
-    <%= movie.title %> <br>
+  <% @user.orders.each do |order| %>
+    <% order.movies.each do |movie| %>
+      <%= movie.title %> <br>
+    <%end%>
   <%end%>
-<%end%>
+
+  
+
+  <% @user.movies.each do |movie|%>
+    <% movie.movie_genres.each do |genre| %>
+      <%= genre.genre.name%>
+    <%end%>
+  <%end%>
 
 <br>
 <%= button_to "Create Movie Order", new_order_path, :method => "get" %>
