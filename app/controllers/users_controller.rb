@@ -3,17 +3,51 @@ class UsersController < ApplicationController
   skip_before_action :authorized, only: [:new, :create] # or whatever onlys you need
 
   def show
-      @user = User.find(params[:id])
-      if session[:user_id]
-        @current = User.find(session[:user_id])
-        p session[:user_id]
-        p "----------"
+    @user = User.find(@current_user.id)
+    if session[:user_id]
+      @current_user = User.find(session[:user_id])
+      p session[:user_id]
+
+    end
+  end
+
+  def new
+      @user = User.new
+  end
+
+    def create
+      @user = User.new(user_params)
+      if @user.save
+        session[:id] = @user.id
+        redirect_to @user
+      else
+       # flash[:message] = "Invalid credentials"
+        render :new
       end
     end
 
-    def new
-        @user = User.new
+    
+
+    def edit
+      @user = User.find(params[:id])
     end
+  
+    def update
+      if @user = User.create(user_params)
+        session[:user_id] = @user.id
+        redirect_to user_path(@user)
+      else
+        render :edit
+      end
+    end
+    private
+
+    def user_params
+        params.require(:user).permit(:user_name, :password,:password_confirmation)
+    end
+end
+
+
 
     # def create
     #     @user = User.new(user_params)
@@ -28,18 +62,7 @@ class UsersController < ApplicationController
     #      render :new
     #     end
     #   end
-    def create
-      @user = User.new(user_params)
-      if @user.save
-        session[:id] = @user.id
-        redirect_to @user
-      else
-       # flash[:message] = "Invalid credentials"
-        render :new
-      end
-    end
 
-    
 
       # @user = User.new(user_params)
       # if @user.save
@@ -60,21 +83,3 @@ class UsersController < ApplicationController
     #      render :new
     #     end
     # end
-    def edit
-      @user = User.find(params[:id])
-    end
-  
-    def update
-      if @user = User.create(user_params)
-        session[:user_id] = @user.id
-        redirect_to user_path(@user)
-      else
-        render :edit
-      end
-    end
-    private
-
-    def user_params
-        params.require(:user).permit(:user_name, :password,:password_confirmation)
-    end
-end

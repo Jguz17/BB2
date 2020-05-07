@@ -1,6 +1,15 @@
-<%=@order.user.user_name%>, here is your order :
+<h3><%= @order.user.user_name %>, here is your order :</h3>
+
 
 <br>
 <% @order.movies.each do |movie| %>
   <%= movie.title %> <br>
   <%end%>
+<br>
+
+
+<%= form_tag order_path(@order.id), method: "delete" do %>
+  <%= submit_tag "Delete this order" %>
+<% end %>
+
+<%= button_to "Back to Home Page", user_path, :method => "get" %>

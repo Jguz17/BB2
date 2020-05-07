@@ -4,13 +4,13 @@
 
   
   <% @user.movies.uniq.each do |movie| %>
-    <%= movie.title %> <br>
+    <%= link_to movie.title, movie_path%> <br>
       
     
   <%end%>
 <br>
   
-<h2>Genres you like:</h2> 
+<h3>Genres you like:</h3> 
 
   <% @user.genres.uniq.each do |genre|%>
   
@@ -21,6 +21,7 @@
 <br>
 <br>
 <%= button_to "Create Movie Order", new_order_path, :method => "get" %>
+<%= button_to "Delete Last Order", new_order_path, :method => "get" %>
 
 
 

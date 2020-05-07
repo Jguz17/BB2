@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :orders, only: [:new, :create, :show, :edit, :update, :destroy]
 
   resources :users, only: [:show, :new, :create] do
-    resources :orders,  only: [:show, :destroy]
+    resources :orders,  only: [:destroy]
   end
   
   

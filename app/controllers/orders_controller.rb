@@ -13,9 +13,9 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    @order.user_id = session[:id]
+    @order.user_id = @current_user.id
     if @order.save
-      Order.find(@order.user_id)
+      # Order.find(@order.user_id)
       redirect_to @order
     else
       render :new
@@ -31,6 +31,11 @@ class OrdersController < ApplicationController
       @current = User.find(session[:user_id])
     end 
 
+  end
+  
+  def destroy
+    Order.find(params[:id]).destroy
+    redirect_to user_path
   end
 
   def update
