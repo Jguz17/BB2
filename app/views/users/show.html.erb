@@ -7,15 +7,19 @@
       <%= movie.title %> <br>
     <%end%>
   <%end%>
-
+<br>
   
-
+<h2>Genres you like:</h2> 
   <% @user.movies.each do |movie|%>
     <% movie.movie_genres.each do |genre| %>
-      <%= genre.genre.name%>
+      <%user_genre = [] %>
+      <% genre.genre.name %>
+      <%=user_genre << genre.genre.name%>
+      <%= user_genre%>
     <%end%>
   <%end%>
 
+<br>
 <br>
 <%= button_to "Create Movie Order", new_order_path, :method => "get" %>
 
