@@ -1,9 +1,11 @@
 class ApplicationController < ActionController::Base
-  before_action :authorized
-  helper_method :current_user, :logged_in?
 
+  # helper_method :current_user, :logged_in?
   def current_user
-    User.find_by(id: session[:user_id])
+    if session[:user_id]
+      @user = User.find_by(id: session[:user_id])
+    else
+    end
   end
   
   def logged_in?
@@ -13,5 +15,8 @@ class ApplicationController < ActionController::Base
   def authorized
     redirect_to login_path unless logged_in?
   end
-
+  
+  def destroy
+    session.delete(:user_id) # or session[:user_id] = nil
+  end
 end

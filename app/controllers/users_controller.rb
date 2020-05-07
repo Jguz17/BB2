@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
-    def show
+  before_action :authorized
+  skip_before_action :authorized, only: [:new, :create] # or whatever onlys you need
+
+  def show
       @user = User.find(params[:id])
       if session[:user_id]
         @current = User.find(session[:user_id])

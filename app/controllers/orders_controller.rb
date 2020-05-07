@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
-  before_action :require_login
+  before_action :logged_in?
+  
 
   def new
     @order = Order.new
@@ -41,9 +42,9 @@ class OrdersController < ApplicationController
     params.require(:order).permit(:user_id, movie_ids: [])
   end
 
-  def require_login
-    if !session.include? :id
-      redirect_to login_path
-    end
-  end
+  # def require_login
+  #   if !session.include? :id
+  #     redirect_to login_path
+  #   end
+  # end
 end
