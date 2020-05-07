@@ -12,13 +12,10 @@
   
 <h2>Genres you like:</h2> 
 
-  <% @user.genres.each do |movie|%>
+  <% @user.genres.uniq.each do |genre|%>
   
-    <% movie.movie_genres.each do |item| %>
+    <%= genre.name %>
       
-      <% item.genre.name %>
-
-    <%end%>
   <%end%>
 
 <br>

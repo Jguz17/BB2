@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     if session[:user_id]
-      @current = User.find(session[:user_id])
+      @current_user = User.find(session[:user_id])
     end 
   end
   #Order stores Order id + user ID
