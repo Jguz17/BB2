@@ -1,12 +1,12 @@
-<% if @current %>
+<% if @user %>
 
-  (logged in as <%= @current.user_name %>)
+  (logged in as <%= @user.user_name %>)
   
   
 
-<h1> Create a New Order for <%= @current.user_name%> </h1>
+<h1> Create a New Order for <%= @user.user_name%> </h1>
 <%=form_for @order do |f|%>
-  <%= f.hidden_field :user_id, value: @current.id%>
+  <%= f.hidden_field :user_id, value: @user.id%>
   <p><%= f.collection_check_boxes :movie_ids, Movie.all, :id, :title %></p>
   
   <br>

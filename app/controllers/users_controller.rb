@@ -6,6 +6,8 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       if session[:user_id]
         @current = User.find(session[:user_id])
+        p session[:user_id]
+        p "----------"
       end
     end
 

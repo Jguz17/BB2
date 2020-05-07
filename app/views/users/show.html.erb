@@ -1,21 +1,23 @@
-<h1>Welcome, <%= @user.user_name%>!</h1>
+<h1>Welcome, <%= @current_user.user_name%>!</h1>
 
 <h3>Here are movies you ordered:</h3>
 
-  <% @user.orders.each do |order| %>
-    <% order.movies.each do |movie| %>
-      <%= movie.title %> <br>
-    <%end%>
+  
+  <% @user.movies.uniq.each do |movie| %>
+    <%= movie.title %> <br>
+      
+    
   <%end%>
 <br>
   
 <h2>Genres you like:</h2> 
-  <% @user.movies.each do |movie|%>
-    <% movie.movie_genres.each do |genre| %>
-      <%user_genre = [] %>
-      <% genre.genre.name %>
-      <%=user_genre << genre.genre.name%>
-      <%= user_genre%>
+
+  <% @user.genres.each do |movie|%>
+  
+    <% movie.movie_genres.each do |item| %>
+      
+      <% item.genre.name %>
+
     <%end%>
   <%end%>
 
@@ -26,8 +28,8 @@
 
 
 <br><br>
-<% if @current %>
-  (logged in as <%= @current.user_name %>)
+<% if @current_user %>
+  (logged in as <%= @current_user.user_name %>)
 <% end %>
 
 <%= form_tag sessions_path do %> 
