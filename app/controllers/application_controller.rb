@@ -8,8 +8,6 @@ class ApplicationController < ActionController::Base
       p "------"
       p session[:user_id] 
       p "++++++"
-  
-    else
     end
   end
   

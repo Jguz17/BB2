@@ -28,11 +28,14 @@ class OrdersController < ApplicationController
 
   def edit
     if session[:user_id]
-      @current = User.find(session[:user_id])
+      @current_user = User.find(session[:user_id])
     end 
-
   end
-  
+
+  def update
+    
+  end
+
   def destroy
     Order.find(params[:id]).destroy
     redirect_to user_path

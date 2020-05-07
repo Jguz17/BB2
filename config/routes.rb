@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   resources :movies, only: [:index, :show]
   resources :orders, only: [:new, :create, :show, :edit, :update, :destroy]
 
-  resources :users, only: [:show, :new, :create] do
-    resources :orders,  only: [:destroy]
-  end
+  resources :users, only: [:show, :new, :create] 
+  #   resources :orders,  only: []:destroy]
+  # end
   
   
 

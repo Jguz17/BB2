@@ -1,15 +1,17 @@
- <% if @current %> 
+<% if @current_user %>
 
- (logged in as <%= @current.user_name%>)
-  
+  (logged in as <%= @current_user.user_name %>)
+ 
   
 
-  <h1> Create a New Order for <%= @current.user_name %>  </h1> 
+  <h1> Create a New Order for <%= @current_user.user_name%> </h1>
   <%=form_for @order do |f|%>
-    <%= f.hidden_field :user_id, value: @current.id %>
+  
     <p><%= f.collection_check_boxes :movie_ids, Movie.all, :id, :title %></p>
     
     <br>
     <%= f.submit %>
   <%end%>
 <%end%>
+  <%= p @current_user.id %>
+ <%= p @current_user.user_name%> 

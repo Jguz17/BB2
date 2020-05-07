@@ -12,4 +12,4 @@
   <%= submit_tag "Delete this order" %>
 <% end %>
 
-<%= button_to "Back to Home Page", user_path, :method => "get" %>
+<%= button_to "Back to Home Page", user_path(@current_user), :method => "get" %>
