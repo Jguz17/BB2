@@ -20,6 +20,6 @@ class ApplicationController < ActionController::Base
   end
   
   def destroy
-    session.delete(:user_id) # or session[:user_id] = nil
+    session.delete(:user_id) # or session[:user_id] = nilgit
   end
 end
