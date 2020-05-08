@@ -1,45 +1,55 @@
-<h1>Welcome, <%= @current_user.user_name%>!</h1>
-<h3>Your User info location:</h3>
-<p><%= @user.location %> </p>
-<%= button_to "Edit User Info", edit_user_path, :method => "get" %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body class="user-show-body">
+  <h1>Welcome, <%= @current_user.user_name%>!</h1>
+  <h3>Your User info location:</h3>
+  <p><%= @user.location %> </p>
+  <%= button_to "Edit User Info", edit_user_path, :method => "get" %>
 
 
-<h3>Here are movies you ordered:</h3>
-<%= button_to "Create Movie Order", new_order_path, :method => "get" %>
+  <h3>Here are movies you ordered:</h3>
+  <%= button_to "Create Movie Order", new_order_path, :method => "get" %>
 
-<br>
-  <% @user.movies.uniq.each do |movie| %>
-    <%= link_to movie.title, movie_path%> <br>
-  <%end%>
-<br>
-
-
-<h4>Your Order(s):</h3>
-<%= button_to "Delete Last Order", order_path, :method => "get" %> <br>
-
-  <% @user.orders.each do |order| %>
-    <%= link_to order.id, order_path%> <br>
-  <%end%>
-  
-<h3>Genres you like:</h3> 
-  <% @user.genres.uniq.each do |genre|%>
-    <%= genre.name %>
-  <%end%>
-
-<br>
-<br>
-
-<br><br>
-<% if @current_user %>
-  (logged in as <%= @current_user.user_name %>)
-<% end %>
-
-<%= form_tag sessions_path do %> 
-<%= submit_tag "Log out" %> <br><br>
-<% end %>
+  <br>
+    <% @user.movies.uniq.each do |movie| %>
+      <%= link_to movie.title, movie_path%> <br>
+    <%end%>
+  <br>
 
 
-<%# <% @user.orders.each do |title|??? %> 
-  <%# <li> list of orders </li>  %> 
+  <h4>Your Order(s):</h3>
+    <% @user.orders.each do |order| %>
+      <%= link_to order.created_at, order_path%> <br>
+    <%end%>
 
-<%# <% end %>
+    <%= button_to "Delete Last Order", order_path, :method => "get" %> <br>
+    
+  <h3>Genres you like:</h3> 
+    <% @user.genres.uniq.each do |genre|%>
+      <%= genre.name %>
+    <%end%>
+
+  <br>
+  <br>
+
+  <br><br>
+  <% if @current_user %>
+    (logged in as <%= @current_user.user_name %>)
+  <% end %>
+
+  <%= form_tag sessions_path do %> 
+  <%= submit_tag "Log out" %> <br><br>
+  <% end %>
+
+
+  <%# <% @user.orders.each do |title|??? %> 
+    <%# <li> list of orders </li>  %> 
+
+  <%# <% end %>
+</body>
+</html>

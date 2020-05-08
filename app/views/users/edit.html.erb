@@ -1,6 +1,16 @@
-<h1>Update User Info: </h1>
-<%= form_for @current_user do |f| %>
-  <label>Location: </label>
-    <%= f.text_field :location %> <br>
-  <%= f.submit "Update" %>
-<% end %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body class="edit-user-info-body">
+  <h1>Update User Info: </h1>
+  <%= form_for @current_user do |f| %>
+    <label>Location: </label>
+      <%= f.text_field :location %> <br>
+    <%= f.submit "Update" %>
+  <% end %>
+</body>
+</html>

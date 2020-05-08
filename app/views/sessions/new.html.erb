@@ -1,11 +1,24 @@
-<h1>Log In Page</h1>
-<%= form_tag sessions_path do %> 
-  <%= label_tag "User Name" %>
-  <%= text_field_tag :user_name %>
-  <br><br>
-  <%= label_tag "Password" %>
-  <%= password_field_tag :password %><br>
-  <br>
-  <%= submit_tag "Log in" %> <br><br>
-<% end %>
-<%= button_to "Create a New Account", new_user_path, :method => "get" %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body class="user-login-body">
+  <div class="user-login-form">
+    <h1>Log In Page</h1>
+      <%= form_tag sessions_path do %> 
+      <%= label_tag "User Name" %>
+      <%= text_field_tag :user_name %>
+      <br><br>
+      <%= label_tag "Password" %>
+      <%= password_field_tag :password %><br>
+      <br>
+      <%= submit_tag "Log in" %> <br><br>
+    <% end %>
+    <%= button_to "Create a New Account", new_user_path, :method => "get" %>
+  </div>
+
+</body>
+</html>

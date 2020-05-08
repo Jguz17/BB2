@@ -1,15 +1,25 @@
-<h3><%= @order.user.user_name %>, here is your latest order :</h3>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body class="show-orders-body">
+  <h3><%= @order.user.user_name %>, here is your latest order :</h3>
 
 
-<br>
-<% @order.movies.each do |movie| %>
-  <%= movie.title %> <br>
-  <%end%>
-<br>
+  <br>
+  <% @order.movies.each do |movie| %>
+    <%= movie.title %> <br>
+    <%end%>
+  <br>
 
 
-<%= form_tag order_path(@order.id), method: "delete" do %>
-  <%= submit_tag "Delete this order" %>
-<% end %>
+  <%= form_tag order_path(@order.id), method: "delete" do %>
+    <%= submit_tag "Delete this order" %>
+  <% end %>
 
-<%= button_to "Back to Home Page", user_path, :method => "get" %>
+  <%= button_to "Back to Home Page", user_path, :method => "get" %>
+</body>
+</html>

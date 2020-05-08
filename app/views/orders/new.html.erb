@@ -1,17 +1,25 @@
-<% if @current_user %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body class="new-order-body">
+  <% if @current_user %>
 
-  (logged in as <%= @current_user.user_name %>)
- 
+    (logged in as <%= @current_user.user_name %>)
   
-
-  <h1> Create a New Order for <%= @current_user.user_name%> </h1>
-  <%=form_for @order do |f|%>
-  
-    <p><%= f.collection_check_boxes :movie_ids, Movie.all, :id, :title %></p>
     
-    <br>
-    <%= f.submit %>
+
+    <h1> Create a New Order for <%= @current_user.user_name%> </h1>
+    <%=form_for @order do |f|%>
+    
+      <p><%= f.collection_check_boxes :movie_ids, Movie.all, :id, :title %></p>
+      
+      <br>
+      <%= f.submit %>
+    <%end%>
   <%end%>
-<%end%>
-  <%= p @current_user.id %>
- <%= p @current_user.user_name%> 
+</body>
+</html>

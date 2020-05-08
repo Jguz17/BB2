@@ -10,6 +10,18 @@
     font-family: poppins-regular;
 }
 
+a:visited {
+    color: white;
+}
+
+a:hover {
+    color: yellow;
+}
+
+a:focus {
+    color: red;
+}
+
 @font-face {
     font-family: poppins-regular;
     src: url(../fonts/Poppins-Regular.ttf);
@@ -19,13 +31,14 @@
 body {
     display: flex;
     height: 100vh;
-    background-image: linear-gradient(to left bottom, #051937, #132852, #24376f, #39478c, #5056aa);
+    background-image: linear-gradient(to right bottom, #4c54a5, #374589, #25376e, #152954, #071b3b);
     align-items: center;
 }
 
 /* SIGNUP-ERRORS STYLES */
 .signup-errors {
     flex: .65;
+    color: red;
     /* background-color: #0c043e; */
     /* background-image: url("https://parade.com/wp-content/uploads/2020/03/avengers-marvel.jpg");
     background-size: cover; */
@@ -105,4 +118,51 @@ input[type="submit"]:active {
 form[class="new_user"] label {
     color: #677279;
     font-size: 1.3rem;
+}
+
+/* --- USER LOGIN STYLES --- */
+
+/* .user-login-body {
+    display: block;
+} */
+
+.user-login-form {
+    display: inline-block;
+    background-color: white;
+}
+
+/* --- USER SHOW PAGE STYLES --- */
+.user-show-body {
+    display: block;
+}
+
+.user-show-body input[type="submit"] {
+    padding: 7px 10px;
+}
+
+/* --- EDIT USER INFO STYLES --- */
+
+.edit-user-info-body {
+    display: block;
+}
+
+/* --- NEW ORDER STYLES --- */
+.new-order-body {
+    display: block;
+}
+
+/* --- SHOW ORDERS STYLES --- */
+
+.show-orders-body {
+    display: block;
+}
+
+.show-orders-body input[type="submit"] {
+    padding: 7px 10px;
+    margin-top: 10px;
+}
+
+/* --- SHOW MOVIES STYLES --- */
+.show-movies-body {
+    display: block;
 }
