@@ -1,0 +1,108 @@
+/* ERROR STYLES */
+.field_with_errors {
+    display: inline-block;
+}
+/* DEFAULTS */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: poppins-regular;
+}
+
+@font-face {
+    font-family: poppins-regular;
+    src: url(../fonts/Poppins-Regular.ttf);
+}
+
+/* BODY STYLES */
+body {
+    display: flex;
+    height: 100vh;
+    background-image: linear-gradient(to left bottom, #051937, #132852, #24376f, #39478c, #5056aa);
+    align-items: center;
+}
+
+/* SIGNUP-ERRORS STYLES */
+.signup-errors {
+    flex: .65;
+    /* background-color: #0c043e; */
+    /* background-image: url("https://parade.com/wp-content/uploads/2020/03/avengers-marvel.jpg");
+    background-size: cover; */
+    /* background-position-x: -8rem; */
+
+}
+
+/* FORM STYLES */
+.signup-form {
+    flex: 2;
+}
+
+.signup-content {
+    background-color: white;
+    display: inline-block;
+    padding: 2.5rem;
+    width: 70%;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 10px 10px 5px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px -5px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px -5px rgba(0,0,0,0.75);
+}
+
+.signup-content h1 {
+    padding-bottom: 20px;
+    color: #555;
+}
+
+.new_user input {
+    border-width: 0;
+    border-bottom-width: 2px;
+    border-color: #677279;
+    outline: none;
+    font-size: .85rem;
+    /* border-color: #fdc221; */
+}
+
+.new_user input:focus {
+    transition: .2s ease-in;
+    border-color: #fdc221;
+}
+
+/* SIGNUP-FIELDS STYLES */
+.signup-fields {
+    display: inline-block;
+    padding-bottom: 20px;
+}
+
+/* FORM BUTTON */
+input[type="submit"] {
+    font-family: poppins-regular;
+    font-size: 1rem;
+    border-width: 0;
+    display: block;
+    padding: 7px 25px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #fdc221;
+    color: white;
+}
+
+input[type="submit"]:hover {
+    background-color: white;
+    color: #30407f;
+    cursor: pointer;
+    transition: .3s ease-in;
+}
+
+input[type="submit"]:active {
+    color: #fdc221;
+    transition: .1s ease-in;
+}
+
+form[class="new_user"] label {
+    color: #677279;
+    font-size: 1.3rem;
+}

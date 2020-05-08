@@ -1,35 +1,52 @@
-<% @user.errors.full_messages.each do |error| %>
-  <p><%= error %></p>
-<% end %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/stylesheets/signup.css">
+    <title>Document</title>
+  </head>
 
-<h1>Create an Account</h1>
+  <body>
 
-<%= form_for (@user) do |f| %>
-    <%= f.label :user_name %>
-    <%= f.text_field :user_name %>
-    <br><br>
-    <%= f.label :location %>
-    <%= f.text_field :location %>
-    <br><br>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-    <br><br>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-    <br><br>
-    <%= f.submit "Sign Up" %>
+    <div class="signup-errors">
+      <% if @user.errors.any? %>
+        <h3><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h3>
+        <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
 
+    <div class="signup-form">
+      <div class="signup-content">
+        <h1>Create an Account</h1>
 
-    <% if @user.errors.any? %>
-  <div id="error_explanation">
-    <h3><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h3>
- 
-    <ul>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
+        <%= form_for (@user) do |f| %>
+            <%= f.label :user_name %>
+            <%= f.text_field :user_name %>
 
-<% end %>
+            <div class="signup-fields">
+              <%= f.label :location %>
+              <%= f.text_field :location %>
+            </div>
+
+            <div class="signup-fields">
+              <%= f.label :password %>
+              <%= f.password_field :password %>
+            </div>
+
+            <div class="signup-fields">
+              <%= f.label :password_confirmation %>
+              <%= f.password_field :password_confirmation %>
+            </div>
+
+            <%= f.submit "Sign Up" %>
+        <% end %>
+      </div>
+    </div>
+
+  </body>
+</html>
